@@ -46,6 +46,10 @@ function CurrentWeather({ data }) {
               {data.main.pressure / 10} kPa
             </span>
           </div>
+          <div className="parameter-row">
+            <span className="parameter-label">Rain</span>
+            <span className="parameter-value">{data.rain}%</span>
+          </div>
         </div>
       </div>
     </div>

@@ -1,12 +1,4 @@
-import { useState } from "react";
 import "./forecast.css";
-// import {
-//   Accordion,
-//   AccordionItem,
-//   AccordionItemButton,
-//   AccordionItemHeading,
-//   AccordionItemPanel,
-// } from "react-accessible-accordion";
 
 const WEEK_DAYS = [
   "Monday",
@@ -34,58 +26,6 @@ function Forecast({ data, curOpen, onOpen }) {
         curOpen={curOpen}
         onOpen={onOpen}
       />
-
-      {/* <Accordion data={data} forecastDays={forecastDays}>
-        {data.list.map((item, index) => (
-          <AccordionItem key={index}>
-            <AccordionItemHeading>
-              <div className="daily-item">
-                <img
-                  alt="weather"
-                  className="icon-small"
-                  src={`icons/${item.weather[0].icon}.png`}
-                />
-                <label className="day">{forecastDays[index]}</label>
-                <label className="day-temp">
-                  {Math.round(item.temp.day)}°C
-                </label>
-                <div className="daily-details-grid-item">
-                  <label>Clouds: </label>
-                  <label>{item.clouds} %</label>
-                </div>
-                <label className="description">
-                  {item.weather[0].description}
-                </label>
-                <label className="min-max">
-                  {Math.round(item.temp.min)}°C / {Math.round(item.temp.max)}
-                  °C
-                </label>
-              </div>
-            </AccordionItemHeading>
-            <AccordionItemPanel>
-              <div className="daily-details-grid">
-                <div className="daily-details-grid-item">
-                  <label>Pressure:</label>
-                  <label>{item.pressure / 10}</label>
-                </div>
-                <div className="daily-details-grid-item">
-                  <label>Humidity:</label>
-                  <label>{item.humidity}</label>
-                </div>
-
-                <div className="daily-details-grid-item">
-                  <label>Wind speed:</label>
-                  <label>{item.speed} m/s</label>
-                </div>
-                <div className="daily-details-grid-item">
-                  <label>Feels like:</label>
-                  <label>{item.feels_like.day}°C</label>
-                </div>
-              </div>
-            </AccordionItemPanel>
-          </AccordionItem>
-        ))}
-      </Accordion> */}
     </>
   );
 }
@@ -111,10 +51,10 @@ function AccordionItem({ item, forecastDays, index, curOpen, onOpen }) {
 
   function handleToggle() {
     onOpen(isOpen ? null : index);
-    console.log(index);
-    console.log(curOpen);
+    // console.log(index);
+    // console.log(curOpen);
   }
-  console.log(isOpen);
+  // console.log(isOpen);
   return (
     <div>
       <AccordionItemHeading

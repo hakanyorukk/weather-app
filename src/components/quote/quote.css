@@ -1,0 +1,21 @@
+.quote {
+  border-radius: 10px;
+  padding: 30px 30px 30px 30px;
+  width: 800px;
+  margin: 130px auto 0 auto;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.text {
+  font-family: "Caveat", cursive !important;
+  font-weight: 200;
+  font-style: normal;
+
+  font-size: 38px;
+}
+
+.author {
+  font-weight: 600px;
+  font-size: 25px;
+}
