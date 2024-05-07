@@ -9,8 +9,12 @@ import { useState } from "react";
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
+
+  const [curOpen, setCurOpen] = useState(null);
+
   function handleOnSearchChange(searchData) {
     const [lat, lon] = searchData.value.split(" ");
+    setCurOpen(null);
 
     const currentWeatherFetch = fetch(
       `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
@@ -36,7 +40,9 @@ function App() {
     <div className="app">
       <Search onSearchChange={handleOnSearchChange} />
       {currentWeather && <CurrentWeather data={currentWeather} />}
-      {forecast && <Forecast data={forecast} />}
+      {forecast && (
+        <Forecast data={forecast} curOpen={curOpen} onOpen={setCurOpen} />
+      )}
     </div>
   );
 }
