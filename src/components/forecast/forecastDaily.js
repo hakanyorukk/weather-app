@@ -1,4 +1,5 @@
-import "./forecast.css";
+import CurrentWeather from "../current-weather/current-weather";
+import "./forecastDaily.css";
 
 const WEEK_DAYS = [
   "Monday",
@@ -10,8 +11,7 @@ const WEEK_DAYS = [
   "Sunday",
 ];
 
-function Forecast({ data, curOpen, onOpen }) {
-  console.log(data);
+function ForecastDaily({ data, curOpen, onOpen, curData }) {
   const dayInAWeek = new Date().getDay();
   const forecastDays = WEEK_DAYS.slice(dayInAWeek, WEEK_DAYS.length).concat(
     WEEK_DAYS.slice(0, dayInAWeek)
@@ -19,7 +19,8 @@ function Forecast({ data, curOpen, onOpen }) {
 
   return (
     <>
-      <label className="title">Daily</label>
+      <CurrentWeather curData={curData} />
+
       <Accordion
         data={data}
         forecastDays={forecastDays}
@@ -117,4 +118,4 @@ function AccordionItemPanel({ item }) {
     </div>
   );
 }
-export default Forecast;
+export default ForecastDaily;
