@@ -1,6 +1,6 @@
 .hourly-item {
   background-color: rgba(176, 176, 176, 0.8);
-
+  width: 100%;
   border-radius: 15px;
   height: 40px;
   margin: 8px;

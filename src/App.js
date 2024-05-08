@@ -6,7 +6,7 @@ import Quote from "./components/quote/quote";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ForecastHourly from "./components/forecast/forecastHourly";
 
 function App() {
@@ -15,6 +15,13 @@ function App() {
   const [forecastHourly, setForecastHourly] = useState(null);
 
   const [curOpen, setCurOpen] = useState(null);
+
+  useEffect(() => {
+    // On component mount (similar to componentDidMount), redirect to the default path
+    if (window.location.pathname !== "/") {
+      window.location.href = "/";
+    }
+  }, []);
 
   function handleOnSearchChange(searchData) {
     const [lat, lon] = searchData.value.split(" ");
@@ -59,7 +66,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            index
+            path=""
             element={
               currentWeather ? (
                 <CurrentWeather curData={currentWeather} />
