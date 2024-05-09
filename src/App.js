@@ -3,10 +3,10 @@ import Search from "./components/search/search";
 import CurrentWeather from "./components/current-weather/current-weather";
 import ForecastDaily from "./components/forecast/forecastDaily";
 import Quote from "./components/quote/quote";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ForecastHourly from "./components/forecast/forecastHourly";
 
 function App() {
