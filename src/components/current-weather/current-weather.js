@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styles from "./current.module.css";
 import "./current-weather.css";
+import { useEffect } from "react";
 
 function CurrentWeather({ curData }) {
   function capitalize(str) {
@@ -23,6 +24,17 @@ function CurrentWeather({ curData }) {
   };
   const time = dateBuilder(curData.timezone);
 
+  const location = useLocation();
+  const isDaily = location.pathname === "/forecastdaily";
+  const isHourly = location.pathname === "/forecasthourly";
+  const home = location.pathname === "/";
+
+  useEffect(() => {
+    if (!isDaily && !isHourly && !home) {
+      window.location.href = "/";
+    }
+  }, [isDaily, isHourly, home]);
+
   return (
     <>
       <div className="weather">
@@ -41,7 +53,7 @@ function CurrentWeather({ curData }) {
           />
         </div>
         <div className="bottom">
-          <p className="temparature">{curData.main.temp.toFixed(1)}°C</p>
+          <p className="temparature">{Math.round(curData.main.temp)}°C</p>
           <div className="details">
             <div className="parameter-row">
               <span className="parameter-label">Details</span>
